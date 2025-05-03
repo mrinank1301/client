@@ -16,11 +16,18 @@ const Index = () => {
   const { toast } = useToast();
   
   useEffect(() => {
+    // Add smooth scrolling behavior to the entire document
+    document.documentElement.style.scrollBehavior = 'smooth';
+    
     toast({
-      title: "Welcome to Deliver Logistics",
+      title: "Welcome to Delivar",
       description: "Your trusted partner for global shipping solutions.",
       duration: 5000,
     });
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = '';
+    };
   }, [toast]);
 
   return (
