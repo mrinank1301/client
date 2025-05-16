@@ -5,21 +5,25 @@ import { Plus, Minus, MapPin, Phone, Mail } from 'lucide-react';
 
 const faqItems = [
   {
-    question: "What types of goods can you transport?",
-    answer: "We transport a wide range of goods including general cargo, perishables, dangerous goods, oversized items, and high-value merchandise. Our specialized equipment and expertise allow us to handle various types of cargo safely and efficiently."
+    question: "What services does Argosian Resources provide?",
+    answer: "We specialize in international commodity trading, procurement, and end-to-end logistics management. Our services include sourcing, transportation, warehousing, and delivery of a wide range of commodities."
   },
   {
-    question: "How do I track my shipment?",
-    answer: "You can track your shipment through our online tracking system by entering your tracking number on our website. Alternatively, you can contact our customer service team who will provide you with real-time updates on your shipment status."
+    question: "Which commodities do you trade?",
+    answer: "We deal in various commodities including minerals, metals, agricultural products, and energy resources, ensuring quality and compliance with global standards."
   },
   {
-    question: "What documents are required for international shipping?",
-    answer: "International shipments typically require commercial invoices, packing lists, certificates of origin, shipping declarations, and sometimes specific permits depending on the nature of goods and destination country. Our team will guide you through the documentation process."
+    question: "In how many countries do you operate?",
+    answer: "Argosian Resources proudly serves clients in over 50 countries across Asia, Europe, Africa, and the Americas, enabling seamless global trade."
   },
   {
-    question: "What are your delivery times?",
-    answer: "Delivery times vary based on the shipping method, destination, and any customs clearance required. Air freight typically takes 1-5 business days, sea freight 15-60 days, and ground transportation 1-10 days depending on distance. We offer expedited services for time-sensitive deliveries."
+    question: "How do you ensure the quality of the commodities?",
+    answer: "We partner with certified suppliers and conduct strict quality control checks at every stage of the supply chain to guarantee high standards and customer satisfaction."
   },
+  {
+    question: "What industries do you serve?",
+    answer: "We cater to industries such as manufacturing, construction, agriculture, energy, and more, delivering tailored commodity solutions based on each client’s unique needs."
+  }
 ];
 
 const FAQ: React.FC = () => {
@@ -30,7 +34,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <section className="py-16 bg-secondary-dark text-white" id="faq">
+    <section className="py-16 bg-white text-secondary-dark" id="faq">
       <div className="container-custom">
         <div className="flex flex-col lg:flex-row gap-12">
           <motion.div 
@@ -67,7 +71,7 @@ const FAQ: React.FC = () => {
                       opacity: activeIndex === index ? 1 : 0,
                     }}
                   >
-                    <div className="p-4 pt-0 text-gray-300">
+                    <div className="p-4 pt-0 text-secondary-dark">
                       {item.answer}
                     </div>
                   </div>
@@ -77,7 +81,7 @@ const FAQ: React.FC = () => {
           </motion.div>
           
           <motion.div 
-            className="w-full lg:w-1/2 bg-secondary p-8 rounded-lg"
+            className="w-full lg:w-1/2 bg-white shadow-lg p-8 rounded-lg"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -92,7 +96,7 @@ const FAQ: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Our Location</h3>
-                  <p className="text-gray-300">123 Logistics Avenue, Shipping District, NY 10001</p>
+                  <p className="text-gray-500">123 Logistics Avenue, Shipping District, NY 10001</p>
                 </div>
               </div>
               
@@ -102,7 +106,7 @@ const FAQ: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Call Us</h3>
-                  <p className="text-gray-300">+1 (555) 123-4567</p>
+                  <p className="text-gray-500">+91 98765 43210</p>
                 </div>
               </div>
               
@@ -112,7 +116,7 @@ const FAQ: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="font-semibold text-lg">Email Us</h3>
-                  <p className="text-gray-300">info@deliverlogistics.com</p>
+                  <p className="text-gray-500">info@argosianresources.com</p>
                 </div>
               </div>
             </div>
@@ -122,23 +126,23 @@ const FAQ: React.FC = () => {
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 />
                 <input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+                  className="w-full px-4 py-2 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
                 />
               </div>
               <input
                 type="text"
                 placeholder="Subject"
-                className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary mb-4"
+                className="w-full px-4 py-2 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary mb-4"
               />
               <textarea
                 placeholder="Your Message"
                 rows={4}
-                className="w-full px-4 py-2 bg-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-primary mb-4"
+                className="w-full px-4 py-2 bg-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-primary mb-4"
               ></textarea>
               <button 
                 type="submit" 

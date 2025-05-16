@@ -6,37 +6,36 @@ import { cn } from '@/lib/utils';
 
 const serviceCards = [
   {
-    title: 'Air Freight',
-    description: 'Fast and efficient air freight solutions for urgent deliveries.',
+    title: 'Market Research & Intelligence',
+    description: '',
     icon: Plane,
     color: 'bg-blue-500',
   },
   {
-    title: 'Train Freight',
-    description: 'Reliable train freight for cost-effective inland transportation.',
+    title: 'Price Discovery',
+    description: '',
     icon: Train,
     color: 'bg-red-500',
   },
   {
-    title: 'Sea Freight',
-    description: 'Global sea freight services for high-volume international shipping.',
+    title: 'Logistics Coordination',
+    description: '',
     icon: Ship,
     color: 'bg-green-500',
   },
   {
-    title: 'Road Freight',
-    description: 'Flexible road freight solutions for local and national deliveries.',
+    title: 'Contract Negotiation & Risk Management',
+    description: '',
     icon: Truck,
     color: 'bg-yellow-600',
   },
 ];
 
 const serviceTypes = [
-  { name: 'Ground transport', icon: Truck, active: true },
-  { name: 'Offshore drafting', icon: Ship, active: false },
-  { name: 'Crude oil extraction', icon: Ship, active: false },
-  { name: 'Liquid transport', icon: Truck, active: false },
-  { name: 'Offshore drafting', icon: Ship, active: false },
+  { name: 'Minerals', icon: Truck, active: true },
+  { name: 'Agricultural Products', icon: Ship, active:false  },
+  { name: 'Metals', icon: Ship, active: true },
+  { name: 'Energy Products', icon: Truck, active: false },
 ];
 
 const Services: React.FC = () => {
@@ -61,6 +60,8 @@ const Services: React.FC = () => {
     },
   };
 
+ 
+
   return (
     <>
       <section className="py-16 bg-white" id="services">
@@ -76,20 +77,20 @@ const Services: React.FC = () => {
               <div className="flex items-center">
                 <span className="bg-blue-500 h-10 w-1 mr-4 rounded"></span>
                 <h2 className="text-lg font-medium text-primary">
-                  We are a Leading one-Stop Logistic Service provider helps to Reach Your
+                Your Trusted Partner in Global Commodity Trading
                 </h2>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mt-4 text-blue-900">
-                Delay and Damages.
+              Minimize Risk. Maximize Value.
               </h3>
               <div className="flex items-center mt-6 mb-6 gap-4">
                 <div className="bg-primary rounded-full p-3">
                   <Truck className="w-6 h-6 text-white" />
                 </div>
-                <span className="font-semibold">300+ Transportation Services</span>
+                <span className="font-semibold"> 300+ Successful Trading Partnerships</span>
               </div>
               <button className="btn-outline flex items-center">
-                Discover more <ChevronRight className="w-4 h-4 ml-2" />
+                Discover Opportunities <ChevronRight className="w-4 h-4 ml-2" />
               </button>
             </div>
             
@@ -126,14 +127,14 @@ const Services: React.FC = () => {
       </section>
 
       <section className="py-4 bg-muted">
-        <div className="container-custom">
-          <div className="flex overflow-x-auto py-4 gap-4 no-scrollbar">
+        <div className="container-custom relative left-1/2 transform -translate-x-1/2">
+          <div className="flex overflow-x-auto py-4 gap-16 no-scrollbar">
             {serviceTypes.map((service, index) => (
               <div 
                 key={index} 
                 className={cn(
                   "flex flex-col items-center justify-center min-w-[200px] py-4 px-6 rounded-lg transition-all cursor-pointer",
-                  service.active ? "bg-primary text-white" : "bg-white hover:bg-accent"
+                  service.active ? "bg-primary text-white hover:bg-blue-800" : "bg-white hover:bg-accent"
                 )}
               >
                 <service.icon className={cn(
@@ -162,10 +163,10 @@ const Services: React.FC = () => {
                 <h2 className="text-lg font-medium text-primary">Our Services</h2>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">
-                Logistics Solution and Services
+                Comprehensive Commodity Trading Solutions
               </h3>
               <p className="text-gray-600 mb-6">
-                We offer comprehensive logistics solutions to meet your shipping needs. From air and sea to road and rail, we have you covered with reliable transportation options.
+              Argosian Resources connects buyers and sellers globally with trusted, transparent commodity trading—spanning minerals, metals, agriculture, and energy. We simplify the entire trade process, offering market insights, fair pricing, secure contracts, and reliable logistics.
               </p>
               <button className="btn-outline flex items-center">
                 View All Services <ChevronRight className="w-4 h-4 ml-2" />
@@ -179,7 +180,7 @@ const Services: React.FC = () => {
               {serviceCards.map((service, index) => (
                 <motion.div 
                   key={index} 
-                  className="service-card"
+                  className="service-card shadow-lg"
                   variants={itemVariants}
                 >
                   <div className={`service-icon ${service.color} mb-4`}>
@@ -187,7 +188,7 @@ const Services: React.FC = () => {
                   </div>
                   <h4 className="text-xl font-bold mb-2">{service.title}</h4>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <a href="#" className="text-primary flex items-center font-medium">
+                  <a href="/services" className="text-primary flex items-center font-medium">
                     Learn More <ChevronRight className="w-4 h-4 ml-1" />
                   </a>
                 </motion.div>

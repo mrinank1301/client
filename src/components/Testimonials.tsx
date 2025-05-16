@@ -1,129 +1,160 @@
 
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { useState, useEffect } from "react";
+import { Star, Quote } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
+// Testimonial data
 const testimonials = [
   {
-    id: 1,
-    name: 'Thomas Hart',
-    position: 'CEO, Global Imports',
-    comment: 'Working with Deliver has transformed our international shipping operations. Their efficient solutions and reliable service have saved us time and money.',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80',
-    rating: 5,
+    stars: 5,
+    quote: "I have been using FastGo cargo logistic & transportation services for over a year now and I am extremely satisfied with their service. They are efficient, reliable, and always deliver on time. I highly recommend them to anyone in need of logistics services.",
+    name: "JOHN DOE",
+    position: "BUSINESS OWNER",
+    featured: true,
+    darkBg: false
   },
   {
-    id: 2,
-    name: 'Amanda Chen',
-    position: 'Logistics Manager, Tech Innovations',
-    comment: 'The team at Deliver consistently exceeds our expectations. Their attention to detail and customer service is unmatched in the industry.',
-    image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-    rating: 5,
+    stars: 5,
+    quote: "I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.",
+    name: "JANE SMITH",
+    position: "FREELANCE CONSULTANT",
+    featured: false,
+    darkBg: false
   },
   {
-    id: 3,
-    name: 'Michael Rodriguez',
-    position: 'Supply Chain Director, Retail Group',
-    comment: 'We\'ve been using Deliver for our shipping needs for over 5 years now. They have never let us down and always find solutions to our complex logistical challenges.',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-    rating: 4,
+    stars: 5,
+    quote: "I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.",
+    name: "MICHAEL JOHNSON",
+    position: "CEO",
+    featured: false,
+    darkBg: false
   },
+  {
+    stars: 5,
+    quote: "I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.",
+    name: "SARAH LEE",
+    position: "ONLINE RETAILER",
+    featured: false,
+    darkBg: false
+  }
 ];
 
-const Testimonials: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const Testimonials = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [animatedTestimonials, setAnimatedTestimonials] = useState<boolean[]>(
+    Array(testimonials.length).fill(false)
+  );
 
-  const nextTestimonial = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
 
-  const prevTestimonial = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+    const section = document.getElementById("testimonials-section");
+    if (section) observer.observe(section);
+
+    return () => {
+      if (section) observer.unobserve(section);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      testimonials.forEach((_, index) => {
+        setTimeout(() => {
+          setAnimatedTestimonials((prev) => {
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }, 200 * (index + 1));
+      });
+    }
+  }, [isVisible]);
+
+  const renderStars = (count: number) => {
+    return Array.from({ length: count }).map((_, index) => (
+      <Star key={index} className="h-6 w-6 text-blue-600 fill-blue-600" />
+    ));
   };
 
   return (
-    <section className="py-16 bg-muted">
-      <div className="container-custom">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="bg-secondary-dark text-white p-8 md:p-12 rounded-2xl relative overflow-hidden"
-        >
-          <div className="absolute top-0 left-0 w-full h-full">
-            <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-blue-900 to-transparent opacity-70"></div>
-            <svg className="absolute bottom-0 right-0 text-blue-800 opacity-20 w-64 h-64" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-              <path fill="currentColor" d="M45.3,-76.2C58.4,-69.7,68.9,-55.5,74.8,-40.6C80.7,-25.7,82,-10.1,78.7,4.1C75.4,18.3,67.5,31,57.9,41.5C48.2,51.9,36.8,60,24.1,67.6C11.5,75.1,-2.3,82.2,-13.9,79.4C-25.6,76.5,-35,63.7,-42.7,51.7C-50.4,39.7,-56.3,28.5,-63.1,15.6C-69.9,2.7,-77.7,-11.8,-76.7,-26.1C-75.7,-40.4,-66.1,-54.4,-53.1,-61.1C-40.1,-67.9,-23.7,-67.3,-5.9,-67C11.9,-66.7,32.2,-82.6,45.3,-76.2Z" transform="translate(100 100)" />
-            </svg>
-          </div>
-          
-          <div className="relative z-10">
-            <div className="flex flex-col md:flex-row gap-8 items-center">
-              <div className="w-full md:w-1/3">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Clients Say About us</h2>
-                <div className="flex gap-4 mt-8">
-                  <button 
-                    onClick={prevTestimonial}
-                    className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-                  <button 
-                    onClick={nextTestimonial}
-                    className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
+    <div id="testimonials-section" className="bg-gray-50 py-16">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
+          <div className="lg:col-span-1">
+            <div className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+              <p className="text-blue-600 font-medium mb-2">TESTIMONIALS</p>
+              <h2 className="text-[2.5rem] font-bold text-[#0a1951] leading-tight mb-12">
+                OUR CLIENTS SPEAK<br />FOR US
+              </h2>
+            </div>
+            
+            <div className="relative mt-6">
+              <div 
+                className={`relative bg-[#0a1951] text-white rounded-lg p-8 mb-8 transition-all duration-700 transform ${
+                  animatedTestimonials[0] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                {/* Empty content */}
+                <div className="h-48"></div>
+                {/* Quote mark */}
+                <div className="absolute -right-6 -top-9 bg-blue-600 p-4 rounded-md">
+                  <Quote className="h-16 w-16 text-white" fill="white" />
                 </div>
               </div>
               
-              <div className="w-full md:w-2/3">
-                <div className="relative overflow-hidden">
-                  <div 
-                    className="transition-transform duration-500 ease-in-out flex"
-                    style={{ transform: `translateX(-${activeIndex * 100}%)` }}
-                  >
-                    {testimonials.map((testimonial) => (
-                      <div 
-                        key={testimonial.id}
-                        className="min-w-full p-4"
-                      >
-                        <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl">
-                          <div className="flex items-center gap-2 mb-4">
-                            {[...Array(5)].map((_, i) => (
-                              <Star 
-                                key={i} 
-                                className={`w-4 h-4 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-400'}`} 
-                                fill={i < testimonial.rating ? 'currentColor' : 'none'} 
-                              />
-                            ))}
-                          </div>
-                          <p className="text-gray-200 mb-6">"{testimonial.comment}"</p>
-                          <div className="flex items-center gap-4">
-                            <div className="w-12 h-12 rounded-full overflow-hidden">
-                              <img 
-                                src={testimonial.image} 
-                                alt={testimonial.name} 
-                                className="w-full h-full object-cover"
-                              />
-                            </div>
-                            <div>
-                              <h4 className="font-bold">{testimonial.name}</h4>
-                              <p className="text-sm text-gray-300">{testimonial.position}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
+              {/* Business owner testimonial directly below the blue card */}
+              <Card 
+                className={`bg-secondary-dark rounded-lg shadow-sm transition-all duration-700 transform ${
+                  animatedTestimonials[0] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                <CardContent className="p-6">
+                  <div className="flex mb-4">
+                    {renderStars(testimonials[0].stars)}
                   </div>
-                </div>
-              </div>
+                  <p className="text-white mb-6">
+                    {testimonials[0].quote}
+                  </p>
+                  <p className="font-bold text-white">
+                    {testimonials[0].name}, {testimonials[0].position}
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
-        </motion.div>
+
+          <div className="lg:col-span-1 flex flex-col space-y-9">
+            {/* Three other testimonial cards */}
+            {testimonials.slice(1).map((testimonial, index) => (
+              <div 
+                key={index}
+                className={`bg-white rounded-lg p-6 shadow-sm transition-all duration-700 transform ${
+                  animatedTestimonials[index + 1] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+                }`}
+              >
+                <div className="flex mb-4">
+                  {renderStars(testimonial.stars)}
+                </div>
+                <p className="text-gray-700 mb-6">
+                  {testimonial.quote}
+                </p>
+                <p className="font-bold text-[#0a1951]">
+                  {testimonial.name}, {testimonial.position}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 

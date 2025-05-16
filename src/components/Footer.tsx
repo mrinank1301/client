@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
           <div>
             <div className="mb-6">
               <a href="#" className="text-3xl font-bold text-white">
-                ✦ Deliver
+                ✦ Argosian
               </a>
             </div>
             <p className="text-gray-300 mb-6">
@@ -43,24 +43,22 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-lg font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#services" className="text-gray-300 hover:text-white transition-colors">Our Services</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Track Shipment</a></li>
-              <li><a href="#blog" className="text-gray-300 hover:text-white transition-colors">Latest News</a></li>
-              <li><a href="#contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Careers</a></li>
+              <li><a href="/aboutus" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Services</a></li>
+              <li><a href="/comodities" className="text-gray-300 hover:text-white transition-colors">Commodities</a></li>
+              <li><a href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</a></li>
             </ul>
           </div>
           
           <div>
             <h3 className="text-lg font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Air Freight</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Sea Freight</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Road Transport</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Train Freight</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Warehousing</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Customs Clearance</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Market Research</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Price Discovery</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Logistics Cordination</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Contract & Risk Management</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Supplier & Buyer Verification</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-white transition-colors">Dedicated Trading Support</a></li>
             </ul>
           </div>
           
@@ -73,11 +71,11 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone className="w-5 h-5 text-primary mr-3" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+                <span className="text-gray-300">+91 98765 43210</span>
               </li>
               <li className="flex items-center">
                 <Mail className="w-5 h-5 text-primary mr-3" />
-                <span className="text-gray-300">info@deliverlogistics.com</span>
+                <span className="text-gray-300">info@argosianresources.com</span>
               </li>
             </ul>
           </div>
