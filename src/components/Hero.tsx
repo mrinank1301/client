@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -41,16 +40,16 @@ const Hero: React.FC = () => {
 
 
       <div className="relative container-custom h-full flex flex-col justify-end py-20 mt-14 ">
-        <div className="flex flex-col gap-0 pb-10 md:flex-row md:gap-6">
+        <div className="flex flex-col gap-4 pb-10 md:flex-row md:gap-6">
         <div>
-          <button className=" border border-white text-white py-2.5 px-6 rounded-full transition-colors w-fit text-sm">
+          <button className="text-white py-2.5 px-6 rounded-full transition-colors w-fit text-sm">
             LET'S MOVE FORWARD.
           </button>
           <div className={cn(
             "max-w-2xl transition-all duration-1000 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
             )}>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               Exporting your goods worldwide.
             </h1>
           </div>
@@ -58,13 +57,13 @@ const Hero: React.FC = () => {
 
           <div className={cn("flex flex-col items-center gap-6 mt-8 transition-all duration-1000 transform",
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10")}>
-            <div className="flex items-center gap-6 mt-8 ">
-              <div className="w-24 h-0.5 bg-primary ml-28"></div>
-              <p className="text-lg text-white">
+            <div className="flex items-center gap-4 mt-4 md:mt-8">
+              <div className="w-12 md:w-24 h-0.5 bg-primary md:ml-28"></div>
+              <p className="text-base md:text-lg text-white">
                 Streamlining your logistics with transport solutions
               </p>
               </div>
-              <div className="hidden lg:block ml-6">
+              <div className="block mt-6 md:mt-0 md:ml-6">
           <button className="bg-blue-600 hover:bg-white hover:text-secondary-dark text-white rounded-md py-3 px-5 flex items-center gap-3 transition-colors">
             Get In Touch
             <ArrowRight className="w-4 h-4" />

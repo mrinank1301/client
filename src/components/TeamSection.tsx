@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
 
 // Team members data
 const teamMembers = [
@@ -38,6 +40,11 @@ const TeamSection = () => {
   const [animatedMembers, setAnimatedMembers] = useState<boolean[]>(Array(teamMembers.length).fill(false));
   const [isVisible, setIsVisible] = useState(false);
 
+  const { ref, inView } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  });
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -46,7 +53,7 @@ const TeamSection = () => {
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.5 }
     );
 
     const section = document.getElementById("team-section");
@@ -73,36 +80,77 @@ const TeamSection = () => {
 
   return (
     <div id="team-section">
-      <h2 className="text-4xl font-bold text-center text-blue-900">Meet our team</h2>
-      <p className="text-center text-gray-600 mt-5 mb-10">
-        Our brilliance is simple — it's a team of diverse, creative people who are fueled by a
-        desire to deliver exceptional work each day.
-      </p>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {teamMembers.map((member, index) => (
-          <div 
-            key={index}
-            className={`bg-white rounded-lg p-6 shadow-sm transition-all duration-500 transform ${
-              animatedMembers[index] ? "scale-100 opacity-100" : "scale-95 opacity-0"
-            } hover:-translate-y-1 hover:shadow-md`}
-          >
-            <div className="flex flex-col items-center mb-4">
-              <div className="w-16 h-16 bg-gray-200 rounded-full overflow-hidden mb-4">
-                {/* Placeholder for profile image */}
-                <div className="w-full h-full flex items-center justify-center text-gray-400">
-                  <img src="/avatar.svg" alt="avatar" />
-                </div>
-              </div>
-              <h3 className="font-semibold text-blue-900">{member.name}</h3>
-              <p className="text-sm text-gray-500">{member.position}</p>
-            </div>
-            <p className="text-sm text-gray-600 text-center">{member.bio}</p>
+      <div id="stats-section" className="py-16 bg-white">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
+          {/* Left side - Image */}
+          <div className="w-full lg:w-1/2">
+            <img 
+              src="/about-team.svg" 
+              alt="Modern workspace with desk and plants" 
+              className="rounded-md shadow-md w-full h-auto"
+            />
           </div>
-        ))}
+          
+          {/* Right side - Stats */}
+          <div className="w-full lg:w-1/2" ref={ref}>
+            <div className="text-blue-600 font-medium mb-3">
+              We've helped hundreds of companies
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-4xl font-bold text-gray-900 mb-10">
+              We're only just getting started on our journey
+            </h2>
+            
+            <div className="grid grid-cols-2 gap-8">
+              {/* Stat 1 */}
+              <div className="flex flex-col">
+                <div className="text-4xl md:text-4xl lg:text-5xl font-bold text-blue-600">
+                  {inView ? (
+                    <CountUp end={400} suffix="+" duration={3.5} />
+                  ) : "400+"}
+                </div>
+                <div className="text-gray-600 mt-2">Projects completed</div>
+              </div>
+              
+              {/* Stat 2 */}
+              <div className="flex flex-col">
+                <div className="text-4xl md:text-4xl lg:text-5xl font-bold text-blue-600">
+                  {inView ? (
+                    <CountUp end={600} suffix="%" duration={3.5} />
+                  ) : "600%"}
+                </div>
+                <div className="text-gray-600 mt-2">Return on investment</div>
+              </div>
+              
+              {/* Stat 3 */}
+              <div className="flex flex-col">
+                <div className="text-4xl md:text-4xl lg:text-5xl font-bold text-blue-600">
+                  {inView ? (
+                    <CountUp end={10} suffix="k" duration={3.5} />
+                  ) : "10k"}
+                </div>
+                <div className="text-gray-600 mt-2">Global downloads</div>
+              </div>
+              
+              {/* Stat 4 */}
+              <div className="flex flex-col">
+                <div className="text-4xl md:text-4xl lg:text-5xl font-bold text-blue-600">
+                  {inView ? (
+                    <CountUp end={200} suffix="+" duration={3.5} />
+                  ) : "200+"}
+                </div>
+                <div className="text-gray-600 mt-2">5-star reviews</div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
     </div>
   );
 };
+
+
 
 export default TeamSection;

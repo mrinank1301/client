@@ -56,32 +56,8 @@ const Servicespage = () => {
         <meta name="keywords" content="services, solutions, professional services, business solutions" />
         <link rel="canonical" href="https://argosianresources.com/services" />
       </Helmet>
-      <div className="min-h-screen w-full">
+      <div className="min-h-screen w-full overflow-hidden">
         <Navbar/>
-        {/* Hero Section */}
-        {/* <section className="bg-blue-200 py-36 px-4">
-          <div className="max-w-5xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-tradingBlue mb-4 opacity-0 animate-fade-in">
-              Our Services
-            </h1>
-            <h2 className="text-lg md:text-xl text-gray-700 mb-6 opacity-0 animate-fade-in animation-delay-200">
-              Seamless Commodity Trading Services Backed by Research, Compliance & Global Reach
-            </h2>
-            <p className="text-gray-600 mb-8 max-w-3xl mx-auto opacity-0 animate-fade-in animation-delay-300">
-              We provide end-to-end trading support for minerals, agri-products, metals, and energy commodities — 
-              from sourcing and pricing to contracts, logistics, and risk management.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in animation-delay-400">
-              <Button className="bg-tradingBlue hover:bg-blue-800 text-white px-8 py-2">
-                Contact Sales
-              </Button>
-              <Button variant="outline" className="border-tradingBlue text-tradingBlue hover:bg-blue-50 px-8 py-2">
-                Get a Quote
-              </Button>
-            </div>
-          </div>
-        </section> */}
         <Hero1
         backgroundImage="/services.svg"
         tagline=""

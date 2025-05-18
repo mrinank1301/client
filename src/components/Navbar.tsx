@@ -141,7 +141,7 @@ const Navbar: React.FC = () => {
 
         {/* Get in Touch Button */}
         <div className="hidden lg:block ml-6">
-          <button className="bg-white hover:bg-gray-100 text-secondary-dark rounded-md py-3 px-5 flex items-center gap-3 transition-colors">
+          <button className="bg-white hover:bg-gray-100 duration-300 text-secondary-dark rounded-md py-3 px-5 flex items-center gap-3 transition-colors">
             Get In Touch
             <ArrowRight className="w-4 h-4" />
           </button>
@@ -157,9 +157,9 @@ const Navbar: React.FC = () => {
             )}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6" />
+              <X className="h-6 w-6 text-secondary-dark" />
             ) : (
-              <Menu className="h-6 w-6 text-white" />
+              <Menu className="h-6 w-6 text-secondary-dark  " />
             )}
           </button>
         </div>

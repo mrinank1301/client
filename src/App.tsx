@@ -29,9 +29,9 @@ const App = () => (
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
             <Route path="/minerals" element={<Minerals />} />
-            <Route path="/agricultureproducts" element={<AgricultureProducts />} />
+            <Route path="/agriculture-products" element={<AgricultureProducts />} />
             <Route path="/metals" element={<Metals/>}/>
-            <Route path="/energyproducts" element={<Energyproducts/>}/>
+            <Route path="/energy-products" element={<Energyproducts/>}/>
             <Route path="/comodities" element={<Comodities/>}/>
             <Route path="/services" element={<Servicespage/>}/>
             <Route path="/contact" element={<Contact/>}/>

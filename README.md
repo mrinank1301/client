@@ -31,7 +31,7 @@ Before you begin, ensure you have the following installed:
 
 To start the development server:
 ```bash
-npm run dev
+npm run dev 
 # or if you use Yarn
 yarn dev
 ```

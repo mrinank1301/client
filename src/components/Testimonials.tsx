@@ -98,7 +98,7 @@ const Testimonials = () => {
             
             <div className="relative mt-6">
               <div 
-                className={`relative bg-[#0a1951] text-white rounded-lg p-8 mb-8 transition-all duration-700 transform ${
+                className={`relative bg-[#0a1951] bg-[url('/testimonial.svg')] bg-cover bg-center text-white rounded-lg p-8 mb-8 transition-all duration-700 transform ${
                   animatedTestimonials[0] ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
                 }`}
               >

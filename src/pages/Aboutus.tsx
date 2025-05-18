@@ -32,7 +32,7 @@ const Aboutus = () => {
         <meta name="keywords" content="about us, company history, our team, mission statement, company values" />
         <link rel="canonical" href="https://argosianresources.com/about" />
       </Helmet>
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white overflow-hidden">
         <Navbar />
         <main>
         <Hero1

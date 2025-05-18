@@ -15,7 +15,7 @@ function Contact() {
         <meta name="keywords" content="contact us, support, help, customer service, reach out" />
         <link rel="canonical" href="https://argosianresources.com/contact" />
       </Helmet>
-      <div>
+      <div className='overflow-hidden'>
         <Navbar/>
         <main>
         <Hero1

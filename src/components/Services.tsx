@@ -9,25 +9,25 @@ const serviceCards = [
     title: 'Market Research & Intelligence',
     description: '',
     icon: Plane,
-    color: 'bg-blue-500',
+    color: 'bg-blue-600',
   },
   {
     title: 'Price Discovery',
     description: '',
     icon: Train,
-    color: 'bg-red-500',
+    color: 'bg-blue-600',
   },
   {
     title: 'Logistics Coordination',
     description: '',
     icon: Ship,
-    color: 'bg-green-500',
+    color: 'bg-blue-600',
   },
   {
     title: 'Contract Negotiation & Risk Management',
     description: '',
     icon: Truck,
-    color: 'bg-yellow-600',
+    color: 'bg-blue-600',
   },
 ];
 
@@ -36,6 +36,7 @@ const serviceTypes = [
   { name: 'Agricultural Products', icon: Ship, active:false  },
   { name: 'Metals', icon: Ship, active: true },
   { name: 'Energy Products', icon: Truck, active: false },
+  { name: 'Others', icon: Truck, active: true },
 ];
 
 const Services: React.FC = () => {
@@ -75,13 +76,12 @@ const Services: React.FC = () => {
           >
             <div className="w-full md:w-1/2">
               <div className="flex items-center">
-                <span className="bg-blue-500 h-10 w-1 mr-4 rounded"></span>
-                <h2 className="text-lg font-medium text-primary">
-                Your Trusted Partner in Global Commodity Trading
+                <h2 className="text-2xl md:text-3xl font-medium text-blue-900">
+                Minimize Risk. Maximize Value.
                 </h2>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold mt-4 text-blue-900">
-              Minimize Risk. Maximize Value.
+              <h3 className="text-lg md:text-lg font-bold mt-4 text-primary">
+              Your Trusted Partner in Global Commodity Trading
               </h3>
               <div className="flex items-center mt-6 mb-6 gap-4">
                 <div className="bg-primary rounded-full p-3">
@@ -127,8 +127,8 @@ const Services: React.FC = () => {
       </section>
 
       <section className="py-4 bg-muted">
-        <div className="container-custom relative left-1/2 transform -translate-x-1/2">
-          <div className="flex overflow-x-auto py-4 gap-16 no-scrollbar">
+        <div className="container-custom relative  transform ">
+          <div className="flex overflow-x-auto py-4 gap-12 no-scrollbar">
             {serviceTypes.map((service, index) => (
               <div 
                 key={index} 
@@ -159,8 +159,6 @@ const Services: React.FC = () => {
           >
             <motion.div className="w-full md:w-1/3" variants={itemVariants}>
               <div className="flex items-center mb-4">
-                <span className="bg-blue-500 h-10 w-1 mr-4 rounded"></span>
-                <h2 className="text-lg font-medium text-primary">Our Services</h2>
               </div>
               <h3 className="text-2xl md:text-3xl font-bold mb-6 text-blue-900">
                 Comprehensive Commodity Trading Solutions

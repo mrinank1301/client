@@ -1,81 +1,73 @@
 import { Card } from "@/components/ui/card";
 import { Triangle, Leaf, CircuitBoard, Zap } from "lucide-react";
-
+import { motion } from "framer-motion";
+import ProductCard from "./ProductCards";
 const CommoditySections = () => {
-  const commodities = [
+  const products = [
     {
+      id: 1,
       title: "Minerals",
-      icon: <Triangle className="h-6 w-6 text-blue-600" />,
-      description: "We source and supply Iron Ore, Bauxite, Manganese",
-      products: ["Iron Ore Fines 62%", "Calcined Bauxite"],
-      origins: ["India", "Brazil", "Australia"],
-      linkText: "View Mineral Listings",
-      color: "text-blue-600"
+      icon: "diamond",
+      image: "/minerals.svg",
+      description: "We source and supply key minerals like Iron Ore, Bauxite, and Manganese for global industrial needs. Top products include Iron Ore Fines 62% and Calcined Bauxite.",
+      color: "bg-blue-500",
+      url: "minerals"
     },
     {
+      id: 2,
       title: "Agricultural Products",
-      icon: <Leaf className="h-6 w-6 text-green-600" />,
-      description: "Rice, Wheat, Pulses, and Spices for export markets",
-      products: ["Basmati Rice", "Wheat Flour", "Turmeric"],
-      origins: ["India", "Vietnam"],
-      linkText: "View Agri Commodities",
-      color: "text-green-600"
+      icon: "leaf",
+      image: "/agriculture.svg",
+      description: "We export high-quality Rice, Wheat, Pulses, and Spices, promoting sustainability in global food trade. Top products include Basmati Rice, Wheat Flour, And Turmeric.",
+      color: "bg-green-500",
+      url: "agriculture-products"
     },
     {
-      title: "Metals",
-      icon: <CircuitBoard className="h-6 w-6 text-blue-600" />,
-      description: "Copper, Aluminum, Steel — quality assured",
-      products: ["Copper Cathodes", "Steel Billets"],
-      origins: ["Middle East", "India"],
-      linkText: "View Metal Products",
-      color: "text-blue-600"
-    },
-    {
+      id: 3,
       title: "Energy Products",
-      icon: <Zap className="h-6 w-6 text-purple-600" />,
-      description: "Crude Oil, LNG, Coal — bulk energy trading",
-      products: ["Crude Oil", "Pet Coke", "Thermal Coal"],
-      origins: ["GCC", "Russia"],
-      linkText: "Explore Energy Sector",
-      color: "text-purple-600"
+      icon: "zap",
+      image: "/energy.svg",
+      description: "We trade bulk energy resources like Crude Oil, LNG, and Coal to support reliable global energy flow. Top products include Crude Oil, Pet Coke, and Thermal Coal.",
+      color: "bg-orange-500",
+      url: "energy-products"
+    },
+    {
+      id: 4,
+      title: "Metals",
+      icon: "package",
+      image: "/metals.svg",
+      description: "We supply high-grade Copper, Aluminum, and Steel, tailored for construction and manufacturing needs. Top products include Copper Cathodes and Steel Billets.",
+      color: "bg-red-500",
+      url: "metals"
     }
   ];
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-      {commodities.map((item, index) => (
-        <Card 
-          key={index}
-          className="p-6 bg-white shadow-sm hover:shadow-md transition-shadow animate-on-scroll"
-          style={{ animationDelay: `${index * 100}ms` }}
-        >
-          <div className="flex gap-4">
-          <div className="mb-4">
-            {item.icon}
+    <section className="py-16 px-4 md:px-8 ">
+          <div className="container mx-auto text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-3xl md:text-4xl font-bold text-blue-800 mb-4"
+            >
+              What We Offer
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.7, delay: 0.4 }}
+              className="text-lg text-gray-700 mb-12 max-w-3xl mx-auto"
+            >
+              Enabling fair, efficient and transparent commodity flows worldwide.
+            </motion.p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              {products.map((product, index) => (
+                <ProductCard key={product.id} product={product} index={index} />
+              ))}
+            </div>
           </div>
-          <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-          </div>
-          <p className="text-sm text-gray-600 mb-4">{item.description}</p>
-          
-          <div className="mb-4">
-            <p className="text-md font-bold  mb-1">Top Products:</p>
-            <p className="text-sm">{item.products.join(", ")}</p>
-          </div>
-          
-          <div className="mb-4">
-            <p className="text-md font-bold  mb-1">Origins:</p>
-            <p className="text-sm">{item.origins.join(", ")}</p>
-          </div>
-          
-          <a 
-            href="#" 
-            className={`text-sm font-medium ${item.color} hover:underline mt-2 inline-block`}
-          >
-            {item.linkText}
-          </a>
-        </Card>
-      ))}
-    </div>
+        </section>
   );
 };
 
