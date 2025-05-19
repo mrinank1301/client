@@ -19,6 +19,7 @@ import Hero from '@/components/Hero';
 import Footer from '@/components/Footer';
 import Hero1 from '@/components/Hero1';
 import { Helmet } from 'react-helmet-async';
+import ProcessTimeline from '@/components/ProcessTimeline';
 
 const Servicespage = () => {
   useEffect(() => {
@@ -206,7 +207,7 @@ const Servicespage = () => {
         </section>
 
         {/* Process Steps Section */}
-        <section className="py-16 px-4 bg-[#f5f5f5]">
+        <section className="py-16 px-4 bg-[#FAFAFC]">
           <div className="max-w-5xl mx-auto text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-800 mb-6 opacity-0 animate-fade-in">
               From Inquiry to Delivery
@@ -214,53 +215,11 @@ const Servicespage = () => {
           </div>
           
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-5 gap-4">
-              <ProcessStep 
-                number={1}
-                title="Inquiry & Need Assessment"
-                description="Initial consultation and requirement gathering"
-                animationDelay="animation-delay-100"
-              />
-              
-              <ProcessStep 
-                number={2}
-                title="Buyer/Seller Matching"
-                description="Finding the perfect trading partners"
-                animationDelay="animation-delay-200"
-              />
-              
-              <ProcessStep 
-                number={3}
-                title="Contract Finalization"
-                description="Legal documentation and agreements"
-                animationDelay="animation-delay-300"
-              />
-              
-              <ProcessStep 
-                number={4}
-                title="Logistics & Delivery"
-                description="Coordinated shipping and handling"
-                animationDelay="animation-delay-400"
-              />
-              
-              <ProcessStep 
-                number={5}
-                title="Post-Trade Support"
-                description="Ongoing assistance and reporting"
-                animationDelay="animation-delay-500"
-              />
-            </div>
+          <ProcessTimeline />
           </div>
         </section>
 
         {/* Trusted By Section */}
-        <section className="py-16 px-4 bg-lightBlue">
-          <div className="max-w-5xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-800 opacity-0 animate-fade-in">
-              Trusted By Industry <span className='bg-blue-300  p-2 rounded-sm'>Leaders</span>
-            </h2>
-          </div>
-        </section>
         <Footer/>
       </div>
     </>
